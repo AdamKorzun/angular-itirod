@@ -1,0 +1,10 @@
+<main class="main-content sign-up">
+    <h1 style="color: #CCA43B; font-size: 2em; margin-top: 0px;">Sign up</h1>
+    <form class="auth-form" method="POST"[formGroup]="signupForm" (ngSubmit)="submit()">
+      <input formControlName="email" class='form-input' type="email" name="email" value="" placeholder="e-mail">
+      <input formControlName="username" class='form-input' type="text" name="username" value="" placeholder="Username">
+      <input formControlName="password" class='form-input' type="password" name="password" value="" placeholder="Password">
+      <button [disabled]="signupForm.invalid" class="auth-button sign-in-button"  type="submit" name="button">Sign up</button>
+    </form>
+    <p style="color: white; margin-top: 20px;">Already have an accout? <a  class="sign-text" routerLink="/signin">Sign in</a></p>
+</main>

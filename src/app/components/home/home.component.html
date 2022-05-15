@@ -1,0 +1,10 @@
+<app-header></app-header>
+<main>
+    <app-note *ngFor="let note of history" [note]="note" (noteDeleted)="deleteNoteHandler($event)"></app-note>
+</main>
+<button id="add-note-button" class="add-button" (click)="openDialog()">
+    <svg class="add-svg" width="58" height="59" viewBox="0 0 58 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="28.9759" cy="29.8773" r="28.9606" fill="#CCA43B"/>
+      <path d="M50.9666 33.0188H32.1175V51.8679H25.8344V33.0188H6.98535V26.7358H25.8344V7.88666H32.1175V26.7358H50.9666V33.0188Z" fill="#202124"/>
+    </svg>
+</button>

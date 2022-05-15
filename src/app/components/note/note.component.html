@@ -1,0 +1,8 @@
+<section *ngIf="note" class="note-container"  >
+    <button [style.background-color]="note.color"  class="del-button" (click)="deleteNoteEvent()">✕</button>
+    <article class="note" [style.background-color]="note.color">
+        <h2 [style.color]="note.textColor" class="note-title" [style.background-color]="note.color">{{note.title}}</h2>
+        <p [style.color]="note.textColor"  class="note-text">{{note.text}}</p>
+        <button class="edit-button"  [style.color]="note.textColor" >Edit</button>
+    </article>
+</section>

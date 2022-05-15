@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html{
+    height: 100%
+}
+body {
+    background-color: #202124;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+textarea {
+    font-family: "Roboto", sans-serif;
+}
+input {
+    font-family: "Roboto", sans-serif;
+}
+.logo {
+    margin-left: 15px;
+}
+.auth-button{
+    background-color: #CCA43B;
+    border: none;
+    color: white;
+    border-radius: 100px;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+}
+.auth-button:hover {
+    cursor: pointer;
+    filter: brightness(0.95);
+  
+}
+.auth-button:focus{
+    filter: brightness(0.8);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

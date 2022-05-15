@@ -1,0 +1,59 @@
+.note {
+    width: 250px;
+    border-radius: 11px;
+    color: white;
+    margin: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.note-title{
+    margin-top: 14px;
+    margin-left: 14px;
+    margin-bottom: 14px;
+    font-size: 1.5em;
+    word-wrap: break-word;
+}
+.note-text {
+    margin-right: 14px;
+    margin-left: 14px;
+    margin-top: 0;
+    text-align: justify;
+    word-wrap: break-word;
+
+}
+.del-button{
+    border-radius: 25px;
+    width: 28px;
+    height: 28px;
+    background-color: inherit;
+    border-color: #141414;
+    visibility: hidden;
+    color: white;
+    position: absolute;
+}
+.del-button:hover{
+    cursor: pointer;
+    filter: brightness(0.95);
+  
+  }
+.del-button:focus{
+    filter: brightness(0.9);
+}
+
+.note-container:hover .del-button {
+    visibility: visible;
+}
+.note-container:hover .edit-button {
+    visibility: visible;
+}
+.edit-button {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+    margin-right: 14px;
+    display: block;
+    visibility: hidden;
+}
