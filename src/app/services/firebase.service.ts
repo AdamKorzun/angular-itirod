@@ -11,22 +11,40 @@ import { User } from '../models/user';
 export class FirebaseService {
 
   constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth, private router: Router) {}
+  getUid() : string | null{
+    return sessionStorage.getItem('uid');
+  }
 
   usersRef: AngularFireObject<any> | undefined;
-  deleteNote(uid: string, noteId: number){
-    console.log(noteId);
-    this.db.database.ref('notes/' + uid + '/' + noteId).remove();
+  deleteNote(noteId: number){
+    let uid = this.getUid();
+    if (uid){
+      this.db.database.ref('notes/' + uid + '/' + noteId).remove();
+    }
   }
-  updateNote(uid: string, note: Note){
+  updateNote(note: Note){
     ;
   }
-  getAllNotes(uid: string){
+  getAllNotes(){
+    let uid = this.getUid();
     if (uid){
       return  this.db.database.ref('notes/' + uid).get();
     }
     throw console.error();
     
 
+  }
+  addNote(note: Note){
+    let uid = this.getUid();
+    if (uid) {
+      this.db.database.ref('notes/' + uid + '/' + String(note.id)).set({
+        'title' : note.title,
+        'text' : note.text,
+        'color' : note.color
+      });
+
+      
+    }
   }
   signIn(user: User) {
     this.afAuth.signInWithEmailAndPassword(user.email, user.password)

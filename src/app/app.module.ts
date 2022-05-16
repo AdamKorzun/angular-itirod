@@ -14,8 +14,11 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddNoteDialogComponent } from './components/add-note-dialog/add-note-dialog.component';
 import { environment } from 'src/environments/environment';
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EditNoteDialogComponent } from './components/edit-note-dialog/edit-note-dialog.component';
 @NgModule({
+  entryComponents: [AddNoteDialogComponent],
   declarations: [
     AppComponent,
     SignupComponent,
@@ -24,7 +27,8 @@ import { environment } from 'src/environments/environment';
     IndexComponent,
     HomeComponent,
     HeaderComponent,
-    AddNoteDialogComponent
+    AddNoteDialogComponent,
+    EditNoteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,9 @@ import { environment } from 'src/environments/environment';
     AngularFireModule,
     AngularFireDatabaseModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NoopAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

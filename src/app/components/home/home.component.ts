@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { Note } from 'src/app/models/note';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { AddNoteDialogComponent } from '../add-note-dialog/add-note-dialog.component';
-
+import { MatDialog } from '@angular/material/dialog';
+import { Colors } from 'src/app/models/colors';
+import { NoteStorageService } from 'src/app/services/note-storage.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,41 +14,35 @@ import { AddNoteDialogComponent } from '../add-note-dialog/add-note-dialog.compo
 export class HomeComponent implements OnInit {
 
   uid: string | undefined;
-  constructor(private router: Router, private fbService: FirebaseService) { }
-  history: Note[] = [];
+  constructor(private router: Router, private dialog: MatDialog, public noteStorage: NoteStorageService) { }
   ngOnInit(): void {
     this.uid = sessionStorage.getItem('uid')?.toString();
     if (!this.uid) {
       this.router.navigateByUrl('');
     }
-    
-    this.fbService.getAllNotes(this.uid!).then(value =>{
-      let snap = value.val();
-      for (let id in snap) {
-        this.history.push(new Note(parseInt(id), snap[id].title, snap[id].text,  snap[id].color));
-      } 
-
-    });
   }
   deleteNoteHandler(id: number){
-    if (this.uid){
-      console.log('test')
-
-      this.fbService.deleteNote(this.uid, id);
-    }
+    this.noteStorage.deleteNote(id);
   }
-  editNoteHandler(id: number){
-    if (this.uid){
-      ;
-    }
-  }
+ 
 
   openDialog(): void {
-    // let dialogRef = this.dialog.open(AddNoteDialogComponent);
-  
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(result)
-    // });
+    let dialogRef = this.dialog.open(AddNoteDialogComponent, {
+      width: '460px',
+      height: '540px',
+      panelClass: 'custom-modalbox'
+
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == null) {
+        return;
+      }
+      let form = result['form'];
+      if (form) {
+        let note = new Note(this.noteStorage.getId, form.title, form.text, Colors.randomColor)
+        this.noteStorage.add(note);
+      }      
+    })
   }
 
 }

@@ -1,0 +1,8 @@
+.add-button{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    direction: none;
+    background: rgba(0,0,0,0);
+    border: none;
+  }
