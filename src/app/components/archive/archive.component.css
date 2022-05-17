@@ -7,3 +7,8 @@ app-notes-layout {
     justify-content: center;
     margin-top: 10px;
 }
+h1 {
+    color: white;
+    font-size: 2.5em;;
+    text-align: center;
+}

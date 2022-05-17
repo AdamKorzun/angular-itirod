@@ -5,6 +5,7 @@
     direction: none;
     background: rgba(0,0,0,0);
     border: none;
+    cursor: pointer;
 }
 
 app-notes-layout {
@@ -12,4 +13,10 @@ app-notes-layout {
     flex-direction: row;
     justify-content: center;
     margin-top: 10px;
+}
+@media (max-width: 900px)  {
+    .add-button {
+      position: static;
+      margin: auto;
+    }
 }
