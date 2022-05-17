@@ -1,5 +1,5 @@
 <section class="masonry-layout">
     <div class="masonry-column" *ngFor="let col of range(columnNumber)">
-      <app-note *ngFor="let note of transform(this.notes, columnNumber, col)" [note]="note" ></app-note>
+      <app-note *ngFor="let note of this.notes | toIterable : columnNumber : col" [note]="note" ></app-note>
     </div>
 </section>

@@ -19,6 +19,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EditNoteDialogComponent } from './components/edit-note-dialog/edit-note-dialog.component';
 import { NotesLayoutComponent } from './components/notes-layout/notes-layout.component';
 import { ArchiveComponent } from './components/archive/archive.component';
+import { ToIterablePipe } from './pipes/to-iterable.pipe';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 @NgModule({
   entryComponents: [AddNoteDialogComponent],
   declarations: [
@@ -32,7 +34,9 @@ import { ArchiveComponent } from './components/archive/archive.component';
     AddNoteDialogComponent,
     EditNoteDialogComponent,
     NotesLayoutComponent,
-    ArchiveComponent
+    ArchiveComponent,
+    ToIterablePipe,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,

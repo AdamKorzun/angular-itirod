@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     }
   }
   
- 
+ searchStr: string = '';
 
   openDialog(): void {
     let dialogRef = this.dialog.open(AddNoteDialogComponent, {
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     return notes.filter(function(n) {return !n.archived;});
   }
   searchStrHandler(searchStr: string){
-    console.log(searchStr);
+    this.searchStr = searchStr;
   }
  
 

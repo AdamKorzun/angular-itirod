@@ -32,19 +32,6 @@ export class NotesLayoutComponent implements OnInit {
     }
   }
 
-  transform(value: any[], numColumns: number, colNum: number): Note[] {
-    if (value.length === 0) return value;
-    if (numColumns < 1 || colNum < 1 || isNaN(numColumns) || isNaN(colNum) ||colNum > numColumns) {
-      console.error("Invalid column configuration");
-      return value;
-    }
-    return value.filter((val, index) => {
-      return index % numColumns  === colNum-1;
-    });
-  }
-
-
-
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     let colNum = parseInt((window.innerWidth / 350).toFixed());
