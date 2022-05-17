@@ -19,8 +19,11 @@ export class NoteComponent implements OnInit {
   constructor(private dialog: MatDialog, public noteStorage: NoteStorageService, private fbService: FirebaseService) {
     
    }
+  contextShown: boolean = false;
   deleteNoteEvent(){
-    this.noteDeleted.emit(this.note!.id);
+    if (this.note){
+      this.noteStorage.deleteNote(this.note.id)
+    }
   }
   ngOnInit(): void {
   }
@@ -41,7 +44,12 @@ export class NoteComponent implements OnInit {
       }      
     })
   }
-  editNoteHandler(id: number){
-    ;
+
+  archiveTransfer() : void{
+    if (this.note){
+      this.note.archived = !this.note.archived;
+      this.noteStorage.updateNote(this.note);
+    }
   }
+ 
 }

@@ -43,9 +43,6 @@ export class NotesLayoutComponent implements OnInit {
     });
   }
 
-  deleteNoteHandler(id: number){
-    this.noteStorage.deleteNote(id);
-  }
 
 
   @HostListener('window:resize', ['$event'])

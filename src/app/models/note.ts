@@ -4,7 +4,8 @@ export class Note {
     text: string;
     color: string;
     textColor: string;
-    constructor(id: number, title: string, text: string, color: string){
+    archived: boolean;
+    constructor(id: number, title: string, text: string, color: string, archived: boolean = false){
         this.id = id;
         this.title = title;
         this.text = text;
@@ -14,5 +15,6 @@ export class Note {
         }else {
             this.textColor = '#FFFFFF';
         }
+        this.archived = archived;
     }
 }

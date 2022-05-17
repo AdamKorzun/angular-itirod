@@ -1,0 +1,9 @@
+.logo {
+    margin-top: 10px;
+}
+app-notes-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+}

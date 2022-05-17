@@ -40,6 +40,12 @@ export class HomeComponent implements OnInit {
       }      
     })
   }
+  unarchived(notes: Note[]){
+    return notes.filter(function(n) {return !n.archived;});
+  }
+  searchStrHandler(searchStr: string){
+    console.log(searchStr);
+  }
  
 
 }

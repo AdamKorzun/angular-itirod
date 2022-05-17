@@ -28,7 +28,8 @@ export class FirebaseService {
       this.db.database.ref('notes/' + uid + '/' + note.id).update({
         'title' : note.title,
         'text' : note.text,
-        'color' : note.color
+        'color' : note.color,
+        'archived' : note.archived
       })
     }
   }
@@ -47,7 +48,8 @@ export class FirebaseService {
       this.db.database.ref('notes/' + uid + '/' + String(note.id)).set({
         'title' : note.title,
         'text' : note.text,
-        'color' : note.color
+        'color' : note.color,
+        'archived': note.archived
       });
 
       

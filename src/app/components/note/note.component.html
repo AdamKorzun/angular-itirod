@@ -1,8 +1,14 @@
 <section *ngIf="note" class="note-container"  >
+    
     <button [style.color]="note.textColor" [style.background-color]="note.color"  class="del-button" (click)="deleteNoteEvent()">✕</button>
     <article class="note" [style.background-color]="note.color">
         <h2 [style.color]="note.textColor" class="note-title" [style.background-color]="note.color">{{note.title}}</h2>
         <p [style.color]="note.textColor"  class="note-text">{{note.text}}</p>
-        <button class="edit-button"  (click)="openDialog()" [style.color]="note.textColor" >Edit</button>
+        <div>
+            <button class="edit-button"  (click)="openDialog()" [style.color]="note.textColor" >Edit</button>
+            <button class="edit-button" *ngIf="!note.archived" [style.color]="note.textColor" (click)="archiveTransfer()">Archive</button>
+            <button class="edit-button" *ngIf="note.archived" [style.color]="note.textColor" (click)="archiveTransfer()">Unarchive</button>
+
+        </div>
     </article>
 </section>

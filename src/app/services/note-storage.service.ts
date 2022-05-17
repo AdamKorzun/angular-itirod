@@ -12,7 +12,7 @@ export class NoteStorageService {
     this.fbService.getAllNotes().then(value =>{
       let snap = value.val();
       for (let id in snap) {
-        this.notes.push(new Note(parseInt(id), snap[id].title, snap[id].text,  snap[id].color));
+        this.notes.push(new Note(parseInt(id), snap[id].title, snap[id].text,  snap[id].color, snap[id].archived));
       } 
 
     });
@@ -20,7 +20,7 @@ export class NoteStorageService {
 
   notes: Note[] = []
   
-
+  
   get getId() {
       let id = 0;
       for (let n of this.notes){
@@ -57,10 +57,14 @@ export class NoteStorageService {
         if (this.notes[i].id === note.id){
           this.notes[i].title = note.title;
           this.notes[i].text = note.text;
+          this.notes[i].archived = note.archived;
           break;
         }
       }
       this.fbService.updateNote(note);
+  }
+  archiveNote(note: Note){
+    ;
   }
 
 }
