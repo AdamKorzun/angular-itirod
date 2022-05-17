@@ -1,8 +1,8 @@
 <section class="add-note-overlay">
     <form id="add-note-form" class="add-note-form"  method='POST' (ngSubmit)='submitForm()'[formGroup]="form" >
         <h1>Add note</h1>
-        <input formControlName="title" matInput class="input-field title-input" type="text" name="title" value="" placeholder="Title">
-        <textarea formControlName="text" matInput class="input-field body-input" type="text" name="text" value="" placeholder="Text"></textarea>
+        <input formControlName="title"  class="input-field title-input" type="text" name="title" value="" placeholder="Title">
+        <textarea formControlName="text"  class="input-field body-input" type="text" name="text" value="" placeholder="Text"></textarea>
         <button  class="auth-button add-note-button" type="submit"  name="add-note-button">Add note</button>
     </form>
     <button mat-dialog-close     id="close-modal-button" class="auth-button close-button">Close</button>

@@ -1,0 +1,5 @@
+<section class="masonry-layout">
+    <div class="masonry-column" *ngFor="let col of range(columnNumber)">
+      <app-note *ngFor="let note of transform(this.notes, columnNumber, col)" [note]="note" (noteDeleted)="deleteNoteHandler($event)"></app-note>
+    </div>
+</section>

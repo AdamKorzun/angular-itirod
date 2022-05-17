@@ -21,17 +21,13 @@ export class HomeComponent implements OnInit {
       this.router.navigateByUrl('');
     }
   }
-  deleteNoteHandler(id: number){
-    this.noteStorage.deleteNote(id);
-  }
+  
  
 
   openDialog(): void {
     let dialogRef = this.dialog.open(AddNoteDialogComponent, {
       width: '460px',
       height: '540px',
-      panelClass: 'custom-modalbox'
-
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result == null) {
@@ -44,5 +40,6 @@ export class HomeComponent implements OnInit {
       }      
     })
   }
+ 
 
 }

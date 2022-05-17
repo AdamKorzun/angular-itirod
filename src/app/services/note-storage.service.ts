@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Note } from '../models/note';
 import { FirebaseService } from './firebase.service';
 
@@ -16,7 +17,8 @@ export class NoteStorageService {
 
     });
    }
-   notes: Note[] = []
+
+  notes: Note[] = []
   
 
   get getId() {
@@ -60,4 +62,5 @@ export class NoteStorageService {
       }
       this.fbService.updateNote(note);
   }
+
 }

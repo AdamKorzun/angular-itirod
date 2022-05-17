@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private router:Router) { }
+  constructor(private fb: FormBuilder, private router:Router, private fbService: FirebaseService) { }
   signupForm: FormGroup =  this.fb.group({
     email: ['', [Validators.email]],
     username: ['', [Validators.required]],
@@ -18,9 +20,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
   submit(): void{
-    console.log('submit');
-    this.router.navigate([""]);
-
+    this.fbService.signUp(new User(this.signupForm.get('email')?.value, this.signupForm.get('password')?.value,))
   }
 
 }

@@ -25,20 +25,19 @@ export class NoteComponent implements OnInit {
   ngOnInit(): void {
   }
   openDialog(): void {
+    console.log()
     let dialogRef = this.dialog.open(EditNoteDialogComponent, {
       width: '460px',
       height: '540px',
-      panelClass: 'custom-modalbox'
-
+      data: this.note
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result == null){
         return
       } 
-      let form = result['form'];
-      if (form) {
-        let note = new Note(this.noteStorage.getId, form.title, form.text, Colors.randomColor)
-        this.noteStorage.updateNote(note);
+      this.note  = result['note'];
+      if (this.note) {
+        this.noteStorage.updateNote(this.note);
       }      
     })
   }

@@ -23,7 +23,14 @@ export class FirebaseService {
     }
   }
   updateNote(note: Note){
-    ;
+    let uid = this.getUid();
+    if (uid) {
+      this.db.database.ref('notes/' + uid + '/' + note.id).update({
+        'title' : note.title,
+        'text' : note.text,
+        'color' : note.color
+      })
+    }
   }
   getAllNotes(){
     let uid = this.getUid();
@@ -60,4 +67,17 @@ export class FirebaseService {
       });
 
   }
+  signUp(user: User){
+    this.afAuth.createUserWithEmailAndPassword(user.email, user.password)
+      .then(value => {
+        let uid =  value!['user']!['uid'];
+        if (uid) {
+          sessionStorage.setItem('uid', uid);
+          this.router.navigateByUrl('/home');
+        }
+      }).catch(arr => {
+        alert('Auth error');
+      })
+  }
 }
+

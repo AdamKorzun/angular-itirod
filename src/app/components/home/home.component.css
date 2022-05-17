@@ -5,4 +5,11 @@
     direction: none;
     background: rgba(0,0,0,0);
     border: none;
-  }
+}
+
+app-notes-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+}

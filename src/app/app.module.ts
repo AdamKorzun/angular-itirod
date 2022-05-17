@@ -17,6 +17,8 @@ import { environment } from 'src/environments/environment';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditNoteDialogComponent } from './components/edit-note-dialog/edit-note-dialog.component';
+import { NotesLayoutComponent } from './components/notes-layout/notes-layout.component';
+import { ArchiveComponent } from './components/archive/archive.component';
 @NgModule({
   entryComponents: [AddNoteDialogComponent],
   declarations: [
@@ -28,7 +30,9 @@ import { EditNoteDialogComponent } from './components/edit-note-dialog/edit-note
     HomeComponent,
     HeaderComponent,
     AddNoteDialogComponent,
-    EditNoteDialogComponent
+    EditNoteDialogComponent,
+    NotesLayoutComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,

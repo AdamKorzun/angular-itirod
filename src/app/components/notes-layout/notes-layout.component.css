@@ -1,0 +1,4 @@
+.masonry-layout {
+    display: grid;
+    grid-auto-flow: column;
+}

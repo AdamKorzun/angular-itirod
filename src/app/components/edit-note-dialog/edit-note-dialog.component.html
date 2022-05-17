@@ -1,1 +1,8 @@
-<p>edit-note-dialog works!</p>
+<section  id="edit-modal" class="add-note-overlay">
+    <form  id="edit-form" class="add-note-form" method="post" (ngSubmit)='submitForm()'[formGroup]="form" >
+      <h1>Edit note</h1>
+      <input formControlName="title"class="input-field title-input" type="text" name="title" value="" placeholder="Title">
+      <textarea formControlName="text" class="input-field body-input" type="text" name="text" value="" placeholder="Text"></textarea>
+      <button class="auth-button edit-note-button" type="submit" name="add-note-button">Edit note</button>
+    </form>
+</section>
